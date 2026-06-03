@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg,
+            #090d1f 0%,
+            #141b42 25%,
+            #232f73 50%,
+            #4a1635 75%,
+            #7b0202 100%);
+
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+
+    position: relative;
+}
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Stars */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, .18) 1px, transparent 2px),
+        radial-gradient(circle at 70% 20%, rgba(255, 255, 255, .15) 1px, transparent 2px),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, .15) 1px, transparent 2px),
+        radial-gradient(circle at 85% 70%, rgba(255, 255, 255, .18) 1px, transparent 2px),
+        radial-gradient(circle at 10% 90%, rgba(255, 255, 255, .12) 1px, transparent 2px),
+        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, .12) 1px, transparent 2px);
+
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 950px;
+    padding: 20px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.screen {
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    min-height: 90vh;
+
+    animation: fadeIn .8s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: white;
+
+    font-size: 3rem;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, .25);
+}
+
+.subtitle {
+    color: #d7ddff;
+
+    font-size: 1.2rem;
+
+    margin-bottom: 40px;
+}
+
+.photo {
+
+    width: 100%;
+    max-width: 450px;
+
+    border-radius: 24px;
+
+    border: 2px solid rgba(255, 255, 255, .15);
+
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, .4);
+
+    margin-bottom: 25px;
+
+    transition: .4s;
+}
+
+.photo:hover {
+    transform: scale(1.02);
+}
+
+.message {
+
+    color: white;
+
+    font-size: 1.25rem;
+
+    line-height: 1.9;
+
+    max-width: 720px;
+
+    min-height: 180px;
+
+    white-space: pre-wrap;
+
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, .3);
+}
+
+.hidden-text {
+    display: none;
+}
+
+.next-btn,
+.music-btn {
+
+    border: none;
+
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, .95);
+
+    color: #1f2454;
+
+    padding: 15px 32px;
+
+    border-radius: 999px;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, .2);
+}
+
+.next-btn:hover,
+.music-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .25);
+}
+
+.music-btn {
+    margin-top: 25px;
+}
+
+@media(max-width:768px) {
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .message {
+        font-size: 1.05rem;
+        min-height: 220px;
+        padding: 0 10px;
+    }
+
+    .photo {
+        max-width: 95%;
+    }
+
+    .next-btn,
+    .music-btn {
+        width: 90%;
+        max-width: 280px;
+    }
+}
